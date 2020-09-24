@@ -20,7 +20,9 @@ def bubble_sort(my_list):
         i = 1
         while i < current_length:
             if my_list[i - 1] > my_list[i]:
-                my_list[i - 1], my_list[i] = my_list[i], my_list[i - 1]
+                temp = my_list[i-1]           
+                my_list[i-1] = my_list[i]     
+                my_list[i] = temp             
             i += 1
     return my_list
 
