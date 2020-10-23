@@ -143,6 +143,7 @@ class DoubleLinkedList:
         while current is not None:
             print(str(current.data))
             current = current.next
+        print()    
 
     def insert_first(self, obj):
         if self.size == 0:
@@ -420,7 +421,70 @@ print(dllist.first)
 
 ############      No. 2      ###############
 
+class DeQueue(DoubleLinkedList):
 
+    def __init__(self):
+        super().__init__()
+        self.first = None
+        self.last = None
+        self.size = 0
+        # global dllist
+        # self.queue = dllist
+        # # if iterable is not None:
+        # #     for obj in iterable:
+        # #         self.enqueue_back(obj)
+
+    def display(self):
+        self.print_list()
+
+    def print(self):
+        h = self.last.data
+        self.remove_by_value(1)
+
+    def is_empty(self):
+        if self.size == 0:
+            return True
+        else:
+            return False
+
+    def enqueue_front(self, obj):
+        self.insert_first(obj)
+
+    def enqueue_back(self, obj):
+        self.insert_last(obj)
+
+    def get_front(self):
+        if self.is_empty():
+            return None
+        print(self.last.data)
+        return self.last.data
+
+    def get_back(self):
+        if self.is_empty():
+            return None
+        print(self.first.data)
+        return self.first.data
+
+    def dequeue_front(self):
+        if self.is_empty():
+            print("Empty")
+            return
+        self.remove_by_value(self.first.data)
+
+    def dequeue_back(self):
+        if self.is_empty():
+            print("Empty")
+            return
+        self.remove_by_value(self.last.data)
+
+
+dque = DeQueue()
+dque.insert_first(3)
+dque.insert_first(2)
+dque.insert_first(1)
+dque.insert_last(4)
+dque.insert_last(5)
+dque.insert_last(6)
 
 
 
