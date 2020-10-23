@@ -1,9 +1,10 @@
 ############      No.1      ###############
 
 class Dequeue:
+class Dequeue:
 
     def __init__(self):
-        self.queue = [None, None, None, None]
+        self.queue = [None, None]
         self.size = 0
         self.front = -1
         self.rear = -1
@@ -21,19 +22,21 @@ class Dequeue:
         while j < initial_length:
             temp.append(None)
             self.queue = temp
-            print(self.queue)
             j += 1
+        print(self.queue)
         self.front = 0
-        self.rear = self.queue[initial_length - 1]
+        self.rear = initial_length-1
+
+
 
     def insert_front(self, obj):
         if self.size == len(self.queue):
             que.resize()
         if self.size == 0:
-            self.front = (self.front + 1) % len(self.queue)
-            self.rear = (self.front + 1) % len(self.queue)
+            self.front = 0
+            self.rear = 0
             self.queue[self.front] = obj
-            self.size += 1
+            self.size = 1
             return
         self.front = (self.front - 1) % len(self.queue)
         self.queue[self.front] = obj
@@ -50,6 +53,8 @@ class Dequeue:
             return
         self.queue[self.front] = None
         self.front = (self.front + 1) % len(self.queue)
+        self.size -= 1
+
 
     def remove_end(self):
         if self.size == 0:
@@ -62,17 +67,24 @@ class Dequeue:
             return
         self.queue[self.rear] = None
         self.rear = (self.rear - 1) % len(self.queue)
+        self.size -= 1
+
+
+
 
     def insert_end(self, obj):
         if self.size == len(self.queue):
             que.resize()
         if self.size == 0:
-            self.front = (self.front + 1) % len(self.queue)
-            self.rear = (self.rear + 1) % len(self.queue)
+            self.front = 0
+            self.rear = 0
             self.queue[self.rear] = obj
+            self.size = 1
             return
         self.rear = (self.rear + 1) % len(self.queue)
         self.queue[self.rear] = obj
+        self.size += 1
+
 
     def get_first(self):
         if self.size == 0:
@@ -88,9 +100,13 @@ class Dequeue:
 
     def display_queue(self):
         i = self.front
+        print("List is ")
         while i != self.rear:
             print(self.queue[i])
             i = (i + 1) % len(self.queue)
+        print(self.queue[self.rear])
+        print()
+
 
     def print_current_queue(self):
         print(self.queue)
