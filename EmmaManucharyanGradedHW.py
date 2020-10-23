@@ -287,6 +287,7 @@ class DoubleLinkedList:
         else:
             if current.data == obj:
                 self.last = self.last.previous
+                self.last.next = None
                 self.size -= 1
             else:
                 print("Element not found")
