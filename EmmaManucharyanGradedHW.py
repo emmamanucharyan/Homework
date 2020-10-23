@@ -1,7 +1,6 @@
 ############      No.1      ###############
 
 class Dequeue:
-class Dequeue:
 
     def __init__(self):
         self.queue = [None, None]
