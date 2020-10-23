@@ -428,11 +428,6 @@ class DeQueue(DoubleLinkedList):
         self.first = None
         self.last = None
         self.size = 0
-        # global dllist
-        # self.queue = dllist
-        # # if iterable is not None:
-        # #     for obj in iterable:
-        # #         self.enqueue_back(obj)
 
     def display(self):
         self.print_list()
