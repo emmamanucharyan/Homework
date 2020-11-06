@@ -94,6 +94,34 @@ class HashSet:
                     continue
                 else:
                     e = e.next
+                 
+    def union(self, s):
+        newSet = HashSet(100)
+        for e in s.hashtable:
+            while (e != None):
+                newSet.add(e.data)
+                e = e.next
+        for e in self.hashtable:
+            while (e != None):
+                if not s.contains(e.data):
+                    newSet.add(e.data)
+                e = e.next
+        return newSet
+
+    def union_update(self, s):
+        for e in s.hashtable:
+            while (e != None):
+                if not self.contains(e.data):
+                    self.add(e.data)
+                e = e.next
+
+    def subtraction(self, s):
+        for e in s.hashtable:
+            while (e != None):
+                if self.contains(e.data):
+                    self.remove(e.data)
+                e = e.next                
+                    
 
     def print(self):
         print("printing hashset elements")
