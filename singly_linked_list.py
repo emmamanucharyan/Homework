@@ -31,7 +31,7 @@ class SingleLinkedList:
             return
         if self.size == 1:
             self.first = None
-            self._last = None
+            self.last = None
             self.size -= 1
             return
         tmp = self.first
@@ -131,16 +131,6 @@ class SingleLinkedList:
             current = current.next
         print("Not found in the list")
 
-    ####FIX LATER
-    # def index_of(self, obj):
-    #     current = self.first
-    #     while current != None:
-    #         if current.data == obj:
-    #             print(current.position)
-    #             return current.position
-    #         else:
-    #             current = current.next
-    #     print("item not present in list")
 
     def insert_at_index(self, index, data):
         if index == 1:
@@ -175,6 +165,12 @@ class SingleLinkedList:
         else:
             current.next = current.next.next
             self.size -= 1
+
+    def emplty_llist(self):
+        self.first.next = None
+        self.last = None
+        self.first = None
+        self.size = 0
 
     def reverse_linked_list(self):
         prev = None
